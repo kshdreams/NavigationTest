@@ -27,3 +27,10 @@ If you launch screen B directly, scroll works well.
             }
         }
 ```
+
+If you navigate with popupBackStack() then scroll works well....
+
+```
+nav.popBackStack()
+nav.navigate("B")
+```
