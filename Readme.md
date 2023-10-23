@@ -1,6 +1,6 @@
 purpose of this repository is reproduce some scrolling problem with below combination 
 
-- compose + AndroidView + RecyclerView + navigation
+- Compose AndroidView + RecyclerView + SwipeDismissableNavHost
 
 
 there are two screens. "A" and "B" 
@@ -33,4 +33,20 @@ If you navigate with popupBackStack() then scroll works well....
 ```
 nav.popBackStack()
 nav.navigate("B")
+```
+
+This problem does not reproduce when use NavHost. 
+```
+@Composable
+fun NavTest() {
+    val nav = rememberNavController()
+    NavHost(navController = nav, startDestination = "A") {
+        composable("A") {
+            ScreenA(nav = nav)
+        }
+        composable("B") {
+            ScreenB()
+        }
+    }
+}
 ```
